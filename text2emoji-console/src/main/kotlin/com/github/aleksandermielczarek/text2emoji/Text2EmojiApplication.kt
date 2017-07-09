@@ -14,7 +14,7 @@ class Text2EmojiApplication @Inject constructor(val text2Emoji: Text2Emoji) {
         val emojis = text2Emoji.text2emoji(arguments.text,
                 arguments.textEmoji,
                 arguments.emptyEmoji,
-                arguments.emojiSeparator,
+                arguments.separator(),
                 arguments.widthLimit)
         printEmojis(emojis)
     }
