@@ -1,0 +1,9 @@
+apply plugin: 'application'
+
+mainClassName = "com.github.aleksandermielczarek.text2emoji.Text2EmojiApplicationKt"
+
+dependencies {
+    compile "com.beust:jcommander:$jcommander_version"
+
+    compile project(':text2emoji-core')
+}
