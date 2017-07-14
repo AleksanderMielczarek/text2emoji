@@ -1,0 +1,11 @@
+apply plugin: 'application'
+
+mainClassName = "com.github.aleksandermielczarek.text2emoji.Text2EmojiApplicationKt"
+
+dependencies {
+    compile "io.reactivex.rxjava2:rxjava:$rxjava_version"
+    compile "io.reactivex.rxjava2:rxjavafx:$rxjavafx_version"
+    compile "io.reactivex.rxjava2:rxkotlin:$rxkotlin_version"
+
+    compile project(':text2emoji-core')
+}

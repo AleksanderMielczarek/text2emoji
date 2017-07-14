@@ -1,3 +1,5 @@
 rootProject.name = 'text2emoji'
 include 'text2emoji-console'
 include 'text2emoji-core'
+include 'text2emoji-gui'
+

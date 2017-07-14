@@ -6,7 +6,9 @@ buildscript {
     ext.mockito_version = '2.8.47'
     ext.gradle_versions_plugin_version = '0.15.0'
     ext.jcommander_version = '1.72'
-    ext.dagger_version = '2.11'
+    ext.rxjava_version = '2.1.1'
+    ext.rxjavafx_version = '2.1.1'
+    ext.rxkotlin_version = '2.1.0'
 
     repositories {
         jcenter()
@@ -24,7 +26,6 @@ buildscript {
 subprojects {
     apply plugin: 'java'
     apply plugin: 'kotlin'
-    apply plugin: 'kotlin-kapt'
 
     group 'com.github.aleksandermielczarek'
     version '1.0-SNAPSHOT'
@@ -35,13 +36,19 @@ subprojects {
         jcenter()
     }
 
+    compileKotlin {
+        kotlinOptions.jvmTarget = "1.8"
+    }
+
+    compileTestKotlin {
+        kotlinOptions.jvmTarget = "1.8"
+    }
+
     dependencies {
         testCompile "junit:junit:$junit_version"
         testCompile "org.mockito:mockito-core:$mockito_version"
 
         compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
-        compile "com.google.dagger:dagger:$dagger_version"
-        kapt "com.google.dagger:dagger-compiler:$dagger_version"
     }
 }
 

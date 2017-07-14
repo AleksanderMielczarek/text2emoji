@@ -1,13 +1,12 @@
 package com.github.aleksandermielczarek.text2emoji
 
 import com.beust.jcommander.JCommander
-import javax.inject.Inject
 
 /**
  * Created by Aleksander Mielczarek on 08.07.2017.
  */
 
-class Text2EmojiApplication @Inject constructor(val text2Emoji: Text2Emoji) {
+class Text2EmojiApplication(val text2Emoji: Text2Emoji) {
 
     fun run(args: Array<String>) {
         val arguments = parseArguments(args)
@@ -55,7 +54,7 @@ class Text2EmojiApplication @Inject constructor(val text2Emoji: Text2Emoji) {
 }
 
 fun main(args: Array<String>) {
-    val appComponent = DaggerText2EmojiApplicationComponent.create()
-    val app = appComponent.getApp()
+    val text2Emoji = Text2Emoji()
+    val app = Text2EmojiApplication(text2Emoji)
     app.run(args)
 }

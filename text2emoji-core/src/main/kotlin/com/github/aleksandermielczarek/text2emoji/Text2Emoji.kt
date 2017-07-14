@@ -1,12 +1,10 @@
 package com.github.aleksandermielczarek.text2emoji
 
-import javax.inject.Inject
-
 
 /**
  * Created by Aleksander Mielczarek on 08.07.2017.
  */
-class Text2Emoji @Inject constructor() {
+class Text2Emoji {
 
     companion object {
 

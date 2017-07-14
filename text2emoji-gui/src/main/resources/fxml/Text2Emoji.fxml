@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.aleksandermielczarek.text2emoji.Text2EmojiController">
+   <children>
+      <Label text="%label.text">
+         <VBox.margin>
+            <Insets bottom="4.0" />
+         </VBox.margin>
+      </Label>
+      <TextField fx:id="text">
+         <VBox.margin>
+            <Insets bottom="8.0" />
+         </VBox.margin>
+      </TextField>
+      <Label text="%label.emoji">
+         <VBox.margin>
+            <Insets bottom="4.0" />
+         </VBox.margin>
+      </Label>
+      <TextField fx:id="textEmoji">
+         <VBox.margin>
+            <Insets bottom="8.0" />
+         </VBox.margin>
+      </TextField>
+      <Label text="%label.empty">
+         <VBox.margin>
+            <Insets bottom="4.0" />
+         </VBox.margin>
+      </Label>
+      <TextField fx:id="emptyEmoji">
+         <VBox.margin>
+            <Insets bottom="12.0" />
+         </VBox.margin>
+      </TextField>
+      <HBox>
+         <children>
+            <CheckBox fx:id="separatorEnabled" mnemonicParsing="false" text="%label.separator">
+               <padding>
+                  <Insets right="4.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets right="4.0" />
+               </HBox.margin>
+            </CheckBox>
+            <TextField fx:id="separator" HBox.hgrow="ALWAYS" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="8.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox>
+         <children>
+            <CheckBox fx:id="widthEnabled" mnemonicParsing="false" text="%label.width">
+               <HBox.margin>
+                  <Insets right="4.0" />
+               </HBox.margin>
+            </CheckBox>
+            <Spinner fx:id="width" editable="true">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Spinner>
+         </children>
+         <VBox.margin>
+            <Insets bottom="16.0" />
+         </VBox.margin>
+      </HBox>
+      <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#copyToClipboard" text="%label.copy">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin></Button>
+      <TextArea fx:id="emojis" editable="false" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets top="16.0" />
+         </VBox.margin>
+      </TextArea>
+   </children>
+   <padding>
+      <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+   </padding>
+</VBox>
