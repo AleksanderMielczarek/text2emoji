@@ -1,6 +1,5 @@
 package com.github.aleksandermielczarek.text2emoji
 
-
 /**
  * Created by Aleksander Mielczarek on 08.07.2017.
  */

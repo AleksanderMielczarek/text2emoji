@@ -5,7 +5,6 @@ import com.beust.jcommander.JCommander
 /**
  * Created by Aleksander Mielczarek on 08.07.2017.
  */
-
 class Text2EmojiApplication(val text2Emoji: Text2Emoji) {
 
     fun run(args: Array<String>) {

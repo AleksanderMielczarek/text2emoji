@@ -1,8 +1,5 @@
 package com.github.aleksandermielczarek.text2emoji
 
-/**
- * Created by Aleksander Mielczarek on 14.07.2017.
- */
 import com.github.thomasnield.rxkotlinfx.textValues
 import com.github.thomasnield.rxkotlinfx.toBinding
 import com.github.thomasnield.rxkotlinfx.toObservable
@@ -15,7 +12,9 @@ import javafx.scene.control.*
 import javafx.scene.input.Clipboard
 import javafx.scene.input.ClipboardContent
 
-
+/**
+ * Created by Aleksander Mielczarek on 14.07.2017.
+ */
 class Text2EmojiController {
 
     companion object {
@@ -106,7 +105,6 @@ class Text2EmojiController {
         } else {
             return Text2Emoji.WIDTH_NO_LIMIT
         }
-
     }
 
     private fun CheckBox.values(): Observable<Boolean> {

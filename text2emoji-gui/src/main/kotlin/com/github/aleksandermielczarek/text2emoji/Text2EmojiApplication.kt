@@ -7,7 +7,6 @@ import javafx.scene.Scene
 import javafx.stage.Stage
 import java.util.*
 
-
 /**
  * Created by Aleksander Mielczarek on 09.07.2017.
  */
