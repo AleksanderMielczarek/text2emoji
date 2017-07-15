@@ -51,20 +51,28 @@ class Matrix<T> {
         return columns.map { it.joinToString(separator) }
     }
 
-    fun height() = columns.size
+    fun height(): Int {
+        return columns.size
+    }
 
-    fun width() = columns
-            .map { it.size }
-            .max() ?: 0
+    fun width(): Int {
+        return columns
+                .map { it.size }
+                .max() ?: 0
+    }
 
-    fun minWidth() = columns
-            .map { it.size }
-            .min() ?: 0
+    fun minWidth(): Int {
+        return columns
+                .map { it.size }
+                .min() ?: 0
+    }
 
-    fun equalsRows() = columns
-            .map { it.size }
-            .distinct()
-            .count() == 1
+    fun equalsRows(): Boolean {
+        return columns
+                .map { it.size }
+                .distinct()
+                .count() == 1
+    }
 
     private fun addNewRows(newRows: Int) {
         if (newRows > height()) {

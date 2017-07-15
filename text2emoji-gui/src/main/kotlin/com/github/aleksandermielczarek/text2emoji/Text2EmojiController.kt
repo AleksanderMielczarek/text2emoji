@@ -3,9 +3,12 @@ package com.github.aleksandermielczarek.text2emoji
 /**
  * Created by Aleksander Mielczarek on 14.07.2017.
  */
+import com.github.thomasnield.rxkotlinfx.textValues
+import com.github.thomasnield.rxkotlinfx.toBinding
+import com.github.thomasnield.rxkotlinfx.toObservable
 import io.reactivex.Observable
-import io.reactivex.functions.Function7
-import io.reactivex.rxjavafx.observables.JavaFxObservable
+import io.reactivex.rxkotlin.Observables
+import javafx.beans.property.Property
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.*
@@ -71,55 +74,51 @@ class Text2EmojiController {
     }
 
     private fun observeText2emoji() {
-        Observable.combineLatest(text.values(),
-                textEmoji.values(),
-                emptyEmoji.values(),
-                separator.disables(),
-                separator.values(),
-                width.disables(),
+        Observables.combineLatest(text.textValues,
+                textEmoji.textValues,
+                emptyEmoji.textValues,
+                separatorEnabled.values(),
+                separator.textValues,
+                widthEnabled.values(),
                 width.values(),
-                Function7 { text: String, textEmoji: String, emptyEmoji: String, separatorDisabled: Boolean, separator: String, widthDisabled: Boolean, width: Int ->
-                    text2emoji(text, textEmoji, emptyEmoji, separatorDisabled, separator, widthDisabled, width)
-                })
-                .subscribe { emojis.text = it }
+                this::text2emoji)
+                .bind(emojis.textProperty())
     }
 
-    private fun text2emoji(text: String, textEmoji: String, emptyEmoji: String, separatorDisabled: Boolean, separator: String, widthDisabled: Boolean, width: Int): String {
-        val currentWidth = resolveWidth(width, widthDisabled)
-        val currentSeparator = resolveSeparator(separator, separatorDisabled)
+    private fun text2emoji(text: String, textEmoji: String, emptyEmoji: String, separatorEnabled: Boolean, separator: String, widthEnabled: Boolean, width: Int): String {
+        val currentWidth = resolveWidth(width, widthEnabled)
+        val currentSeparator = resolveSeparator(separator, separatorEnabled)
         val emojis = text2Emoji.text2emoji(text, textEmoji, emptyEmoji, currentSeparator, currentWidth)
         return emojis.joinToString(System.lineSeparator())
     }
 
-    private fun resolveSeparator(separator: String, separatorDisabled: Boolean): String {
-        var currentSeparator = separator
-        if (separatorDisabled) {
-            currentSeparator = ""
+    private fun resolveSeparator(separator: String, separatorEnabled: Boolean): String {
+        if (separatorEnabled) {
+            return separator
+        } else {
+            return ""
         }
-        return currentSeparator
     }
 
-    private fun resolveWidth(width: Int, widthDisabled: Boolean): Int {
-        var currentWidth = width
-        if (widthDisabled) {
-            currentWidth = Text2Emoji.WIDTH_NO_LIMIT
+    private fun resolveWidth(width: Int, widthEnabled: Boolean): Int {
+        if (widthEnabled) {
+            return width
+        } else {
+            return Text2Emoji.WIDTH_NO_LIMIT
         }
-        return currentWidth
+
     }
 
-    private fun TextField.values(): Observable<String> {
-        return JavaFxObservable.valuesOf(this.textProperty())
+    private fun CheckBox.values(): Observable<Boolean> {
+        return selectedProperty().toObservable()
     }
 
-    private fun TextField.disables(): Observable<Boolean> {
-        return JavaFxObservable.valuesOf(this.disableProperty())
+    private fun <T> Spinner<T>.values(): Observable<T> {
+        return valueProperty().toObservable()
     }
 
-    private fun Spinner<Int>.values(): Observable<Int> {
-        return JavaFxObservable.valuesOf(this.valueProperty())
+    private fun <T> Observable<T>.bind(property: Property<T>) {
+        property.bind(this.toBinding())
     }
 
-    private fun Spinner<Int>.disables(): Observable<Boolean> {
-        return JavaFxObservable.valuesOf(this.disableProperty())
-    }
 }
