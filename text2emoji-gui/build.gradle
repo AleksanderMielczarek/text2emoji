@@ -1,6 +1,12 @@
-apply plugin: 'application'
+apply plugin: 'javafx-gradle-plugin'
 
-mainClassName = "com.github.aleksandermielczarek.text2emoji.Text2EmojiApplicationKt"
+jfx {
+    mainClass = 'com.github.aleksandermielczarek.text2emoji.Text2EmojiApplicationKt'
+    jfxAppOutputDir = 'build/jfx/text2emoji'
+    jfxMainAppJarName = 'text2emoji.jar'
+    vendor = 'Aleksander Mielczarek'
+    appName = 'text2emoji'
+}
 
 dependencies {
     compile "io.reactivex.rxjava2:rxjava:$rxjava_version"
