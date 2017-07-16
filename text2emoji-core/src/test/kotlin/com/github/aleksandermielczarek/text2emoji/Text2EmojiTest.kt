@@ -18,66 +18,65 @@ class Text2EmojiTest {
         const val EMPTY_EMOJI = ":empty:"
         const val EMOJI_SEPARATOR = " "
 
-        val EMOJI_A = listOf(
-                ":empty: :face: :empty:",
-                ":face: :empty: :face:",
-                ":face: :face: :face:",
-                ":face: :empty: :face:",
-                ":face: :empty: :face:")
+        val EMOJI_A = ":empty: :face: :empty:" + System.lineSeparator() +
+                ":face: :empty: :face:" + System.lineSeparator() +
+                ":face: :face: :face:" + System.lineSeparator() +
+                ":face: :empty: :face:" + System.lineSeparator() +
+                ":face: :empty: :face:"
 
-        val EMOJI_A_B = listOf(
-                ":empty: :face: :empty: :empty: :face: :face: :empty:",
-                ":face: :empty: :face: :empty: :face: :empty: :face:",
-                ":face: :face: :face: :empty: :face: :face: :empty:",
-                ":face: :empty: :face: :empty: :face: :empty: :face:",
-                ":face: :empty: :face: :empty: :face: :face: :empty:")
+        val EMOJI_A_B =
+                ":empty: :face: :empty: :empty: :face: :face: :empty:" + System.lineSeparator() +
+                        ":face: :empty: :face: :empty: :face: :empty: :face:" + System.lineSeparator() +
+                        ":face: :face: :face: :empty: :face: :face: :empty:" + System.lineSeparator() +
+                        ":face: :empty: :face: :empty: :face: :empty: :face:" + System.lineSeparator() +
+                        ":face: :empty: :face: :empty: :face: :face: :empty:"
 
-        val EMOJI_A_B_C = listOf(
-                ":empty: :face: :empty: :empty: :face: :face: :empty: :empty: :empty: :face: :face:",
-                ":face: :empty: :face: :empty: :face: :empty: :face: :empty: :face: :empty: :empty:",
-                ":face: :face: :face: :empty: :face: :face: :empty: :empty: :face: :empty: :empty:",
-                ":face: :empty: :face: :empty: :face: :empty: :face: :empty: :face: :empty: :empty:",
-                ":face: :empty: :face: :empty: :face: :face: :empty: :empty: :empty: :face: :face:")
+        val EMOJI_A_B_C =
+                ":empty: :face: :empty: :empty: :face: :face: :empty: :empty: :empty: :face: :face:" + System.lineSeparator() +
+                        ":face: :empty: :face: :empty: :face: :empty: :face: :empty: :face: :empty: :empty:" + System.lineSeparator() +
+                        ":face: :face: :face: :empty: :face: :face: :empty: :empty: :face: :empty: :empty:" + System.lineSeparator() +
+                        ":face: :empty: :face: :empty: :face: :empty: :face: :empty: :face: :empty: :empty:" + System.lineSeparator() +
+                        ":face: :empty: :face: :empty: :face: :face: :empty: :empty: :empty: :face: :face:"
 
-        val EMOJI_A_SPACE_B = listOf(
-                ":empty: :face: :empty: :empty: :empty: :face: :face: :empty:",
-                ":face: :empty: :face: :empty: :empty: :face: :empty: :face:",
-                ":face: :face: :face: :empty: :empty: :face: :face: :empty:",
-                ":face: :empty: :face: :empty: :empty: :face: :empty: :face:",
-                ":face: :empty: :face: :empty: :empty: :face: :face: :empty:")
+        val EMOJI_A_SPACE_B =
+                ":empty: :face: :empty: :empty: :empty: :face: :face: :empty:" + System.lineSeparator() +
+                        ":face: :empty: :face: :empty: :empty: :face: :empty: :face:" + System.lineSeparator() +
+                        ":face: :face: :face: :empty: :empty: :face: :face: :empty:" + System.lineSeparator() +
+                        ":face: :empty: :face: :empty: :empty: :face: :empty: :face:" + System.lineSeparator() +
+                        ":face: :empty: :face: :empty: :empty: :face: :face: :empty:"
 
-        val EMOJI_UNKNOWN = listOf(
-                ":face: :face: :face:",
-                ":face: :face: :face:",
-                ":face: :face: :face:",
-                ":face: :face: :face:",
-                ":face: :face: :face:")
+        val EMOJI_UNKNOWN =
+                ":face: :face: :face:" + System.lineSeparator() +
+                        ":face: :face: :face:" + System.lineSeparator() +
+                        ":face: :face: :face:" + System.lineSeparator() +
+                        ":face: :face: :face:" + System.lineSeparator() +
+                        ":face: :face: :face:"
 
-        val EMOJI_A_NEW_LINE_B_WIDTH_FIVE = listOf(
-                ":empty: :face: :empty: :empty: :empty:",
-                ":face: :empty: :face: :empty: :empty:",
-                ":face: :face: :face: :empty: :empty:",
-                ":face: :empty: :face: :empty: :empty:",
-                ":face: :empty: :face: :empty: :empty:",
-                ":empty: :empty: :empty: :empty: :empty:",
-                ":face: :face: :empty: :empty: :empty:",
-                ":face: :empty: :face: :empty: :empty:",
-                ":face: :face: :empty: :empty: :empty:",
-                ":face: :empty: :face: :empty: :empty:",
-                ":face: :face: :empty: :empty: :empty:")
+        val EMOJI_A_NEW_LINE_B_WIDTH_FIVE =
+                ":empty: :face: :empty: :empty: :empty:" + System.lineSeparator() +
+                        ":face: :empty: :face: :empty: :empty:" + System.lineSeparator() +
+                        ":face: :face: :face: :empty: :empty:" + System.lineSeparator() +
+                        ":face: :empty: :face: :empty: :empty:" + System.lineSeparator() +
+                        ":face: :empty: :face: :empty: :empty:" + System.lineSeparator() +
+                        ":empty: :empty: :empty: :empty: :empty:" + System.lineSeparator() +
+                        ":face: :face: :empty: :empty: :empty:" + System.lineSeparator() +
+                        ":face: :empty: :face: :empty: :empty:" + System.lineSeparator() +
+                        ":face: :face: :empty: :empty: :empty:" + System.lineSeparator() +
+                        ":face: :empty: :face: :empty: :empty:" + System.lineSeparator() +
+                        ":face: :face: :empty: :empty: :empty:"
 
-        val EMOJI_A_B_NEW_LINE_C_WIDTH_SEVEN = listOf(
-                ":empty: :face: :empty: :empty: :face: :face: :empty:",
-                ":face: :empty: :face: :empty: :face: :empty: :face:",
-                ":face: :face: :face: :empty: :face: :face: :empty:",
-                ":face: :empty: :face: :empty: :face: :empty: :face:",
-                ":face: :empty: :face: :empty: :face: :face: :empty:",
-                ":empty: :empty: :empty: :empty: :empty: :empty: :empty:",
-                ":empty: :face: :face: :empty: :empty: :empty: :empty:",
-                ":face: :empty: :empty: :empty: :empty: :empty: :empty:",
-                ":face: :empty: :empty: :empty: :empty: :empty: :empty:",
-                ":face: :empty: :empty: :empty: :empty: :empty: :empty:",
-                ":empty: :face: :face: :empty: :empty: :empty: :empty:")
+        val EMOJI_A_B_NEW_LINE_C_WIDTH_SEVEN =
+                ":empty: :face: :empty: :empty: :face: :face: :empty:" + System.lineSeparator() +
+                        ":face: :empty: :face: :empty: :face: :empty: :face:" + System.lineSeparator() +
+                        ":face: :face: :face: :empty: :face: :face: :empty:" + System.lineSeparator() +
+                        ":face: :empty: :face: :empty: :face: :empty: :face:" + System.lineSeparator() +
+                        ":face: :empty: :face: :empty: :face: :face: :empty:" + System.lineSeparator() +
+                        ":empty: :empty: :empty: :empty: :empty: :empty: :empty:" + System.lineSeparator() +
+                        ":empty: :face: :face: :empty: :empty: :empty: :empty:" + System.lineSeparator() +
+                        ":face: :empty: :empty: :empty: :empty: :empty: :empty:" + System.lineSeparator() +
+                        ":face: :empty: :empty: :empty: :empty: :empty: :empty:" + System.lineSeparator() +
+                        ":face: :empty: :empty: :empty: :empty: :empty: :empty:" + System.lineSeparator() +
+                        ":empty: :face: :face: :empty: :empty: :empty: :empty:"
 
     }
 

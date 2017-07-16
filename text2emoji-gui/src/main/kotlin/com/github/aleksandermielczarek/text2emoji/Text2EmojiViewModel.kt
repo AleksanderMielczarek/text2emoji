@@ -50,8 +50,7 @@ class Text2EmojiViewModel @Inject constructor(val text2Emoji: Text2Emoji) {
     private fun text2emoji(text: String, textEmoji: String, emptyEmoji: String, separatorEnabled: Boolean, separator: String, widthEnabled: Boolean, width: Int): String {
         val currentWidth = resolveWidth(width, widthEnabled)
         val currentSeparator = resolveSeparator(separator, separatorEnabled)
-        val emojis = text2Emoji.text2emoji(text, textEmoji, emptyEmoji, currentSeparator, currentWidth)
-        return emojis.joinToString(System.lineSeparator())
+        return text2Emoji.text2emoji(text, textEmoji, emptyEmoji, currentSeparator, currentWidth)
     }
 
     private fun resolveSeparator(separator: String, separatorEnabled: Boolean): String {

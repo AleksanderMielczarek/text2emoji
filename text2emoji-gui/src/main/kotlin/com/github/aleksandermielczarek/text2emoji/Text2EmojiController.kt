@@ -41,7 +41,7 @@ class Text2EmojiController {
     fun initialize() {
         Text2EmojiApplication.injectMembers(this)
         initSpinner()
-        bindWidgets()
+        bindViewModel()
         viewModel.observeText2emoji()
     }
 
@@ -55,10 +55,7 @@ class Text2EmojiController {
         width.valueFactory = spinnerValueFactory
     }
 
-    private fun bindWidgets() {
-        width.disableProperty().bind(widthEnabled.selectedProperty().not())
-        separator.disableProperty().bind(separatorEnabled.selectedProperty().not())
-
+    private fun bindViewModel() {
         viewModel.text.bind(text.textProperty())
         viewModel.textEmoji.bind(textEmoji.textProperty())
         viewModel.emptyEmoji.bind(emptyEmoji.textProperty())
@@ -66,6 +63,9 @@ class Text2EmojiController {
         viewModel.separator.bind(separator.textProperty())
         viewModel.widthEnabled.bind(widthEnabled.selectedProperty())
         viewModel.width.bind(width.valueProperty())
+
+        width.disableProperty().bind(viewModel.widthEnabled.not())
+        separator.disableProperty().bind(viewModel.separatorEnabled.not())
         emojis.textProperty().bind(viewModel.emojis)
     }
 

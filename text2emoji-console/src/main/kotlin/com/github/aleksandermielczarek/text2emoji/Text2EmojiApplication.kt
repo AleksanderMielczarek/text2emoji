@@ -16,7 +16,7 @@ class Text2EmojiApplication @Inject constructor(val text2Emoji: Text2Emoji) {
                 arguments.emptyEmoji,
                 arguments.separator(),
                 arguments.widthLimit)
-        printEmojis(emojis)
+        println(emojis)
     }
 
     private fun parseArguments(args: Array<String>): Arguments {
@@ -46,10 +46,6 @@ class Text2EmojiApplication @Inject constructor(val text2Emoji: Text2Emoji) {
             jCommander.usage()
             System.exit(1)
         }
-    }
-
-    private fun printEmojis(emojis: List<String>) {
-        emojis.forEach { println(it) }
     }
 
 }

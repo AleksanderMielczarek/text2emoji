@@ -11,13 +11,13 @@ class Text2Emoji {
 
     }
 
-    fun text2emoji(text: String, textEmoji: String, emptyEmoji: String, emojiSeparator: String, maxWidthLimit: Int = WIDTH_NO_LIMIT): List<String> {
+    fun text2emoji(text: String, textEmoji: String, emptyEmoji: String, emojiSeparator: String, maxWidthLimit: Int = WIDTH_NO_LIMIT): String {
         val widthLimit = checkWidthLimit(maxWidthLimit)
         val hasWidthLimit = widthLimit(widthLimit)
         val matrix: Matrix<String> = text2matrix(text, hasWidthLimit, widthLimit)
         matrix.replace(Symbol.PLACEHOLDER_FULL, textEmoji)
         matrix.replace(Symbol.PLACEHOLDER_EMPTY, emptyEmoji)
-        return matrix.joinToString(emojiSeparator)
+        return matrix.joinToString(emojiSeparator).joinToString(System.lineSeparator())
     }
 
     private fun checkWidthLimit(widthLimit: Int): Int {
