@@ -8,17 +8,16 @@ import javafx.beans.property.SimpleIntegerProperty
 import javafx.beans.property.SimpleStringProperty
 import javafx.scene.input.Clipboard
 import javafx.scene.input.ClipboardContent
+import javax.inject.Inject
 
 /**
  * Created by Aleksander Mielczarek on 16.07.2017.
  */
-class Text2EmojiViewModel {
+class Text2EmojiViewModel @Inject constructor(val text2Emoji: Text2Emoji) {
 
     companion object {
         val MAX_WIDTH = 100
     }
-
-    val text2Emoji = Text2Emoji()
 
     val text = SimpleStringProperty()
     val textEmoji = SimpleStringProperty()

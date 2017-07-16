@@ -1,5 +1,7 @@
 package com.github.aleksandermielczarek.text2emoji
 
+import com.google.inject.Guice
+import com.google.inject.Injector
 import javafx.application.Application
 import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
@@ -11,6 +13,8 @@ import java.util.*
  * Created by Aleksander Mielczarek on 09.07.2017.
  */
 class Text2EmojiApplication : Application() {
+
+    companion object : Injector by Guice.createInjector()
 
     override fun start(primaryStage: Stage) {
         val fxml = javaClass.getResource("/fxml/Text2Emoji.fxml")

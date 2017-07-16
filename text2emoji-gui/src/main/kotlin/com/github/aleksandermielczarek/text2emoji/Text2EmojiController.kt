@@ -3,6 +3,7 @@ package com.github.aleksandermielczarek.text2emoji
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.*
+import javax.inject.Inject
 
 /**
  * Created by Aleksander Mielczarek on 14.07.2017.
@@ -33,10 +34,12 @@ class Text2EmojiController {
     @FXML
     lateinit var emojis: TextArea
 
-    private val viewModel = Text2EmojiViewModel()
+    @Inject
+    private lateinit var viewModel: Text2EmojiViewModel
 
     @FXML
     fun initialize() {
+        Text2EmojiApplication.injectMembers(this)
         initSpinner()
         bindWidgets()
         viewModel.observeText2emoji()

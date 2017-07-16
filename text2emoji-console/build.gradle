@@ -4,6 +4,7 @@ mainClassName = "com.github.aleksandermielczarek.text2emoji.Text2EmojiApplicatio
 
 dependencies {
     compile "com.beust:jcommander:$jcommander_version"
+    compile "com.google.inject:guice:$guice_version"
 
     compile project(':text2emoji-core')
 }

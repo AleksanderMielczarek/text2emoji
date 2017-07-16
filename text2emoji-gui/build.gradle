@@ -9,5 +9,7 @@ dependencies {
     compile "io.reactivex.rxjava2:rxkotlin:$rxkotlin_version"
     compile "com.github.thomasnield:rxkotlinfx:$rxkotlinfx_version"
 
+    compile "com.google.inject:guice:$guice_version"
+
     compile project(':text2emoji-core')
 }

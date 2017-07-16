@@ -15,6 +15,7 @@ buildscript {
     ext.rxkotlinfx_version = '2.1.1'
 
     ext.jcommander_version = '1.72'
+    ext.guice_version = '4.1.0'
 
     repositories {
         jcenter()
