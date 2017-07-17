@@ -6,6 +6,7 @@ import javafx.application.Application
 import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
 import javafx.scene.Scene
+import javafx.scene.image.Image
 import javafx.stage.Stage
 import java.util.*
 
@@ -17,15 +18,23 @@ class Text2EmojiApplication : Application() {
     companion object : Injector by Guice.createInjector()
 
     override fun start(primaryStage: Stage) {
-        val fxml = javaClass.getResource("/fxml/Text2Emoji.fxml")
         val bundle = ResourceBundle.getBundle("bundle/bundle", Locale(""))
-        val root: Parent = FXMLLoader.load(fxml, bundle)
-
+        val root = createRoot(bundle)
         val scene = Scene(root)
-
-        primaryStage.title = bundle.getString("app.name")
-        primaryStage.scene = scene
+        setupStage(primaryStage, bundle, scene)
         primaryStage.show()
+    }
+
+    private fun createRoot(bundle: ResourceBundle): Parent {
+        val fxml = javaClass.getResource("/fxml/Text2Emoji.fxml")
+        val root: Parent = FXMLLoader.load(fxml, bundle)
+        return root
+    }
+
+    private fun setupStage(primaryStage: Stage, bundle: ResourceBundle, scene: Scene) {
+        primaryStage.title = bundle.getString("app.name")
+        primaryStage.icons.add(Image("image/icon.png"))
+        primaryStage.scene = scene
     }
 }
 
