@@ -2,10 +2,18 @@ apply plugin: 'javafx-gradle-plugin'
 
 jfx {
     mainClass = 'com.github.aleksandermielczarek.text2emoji.Text2EmojiApplicationKt'
-    jfxAppOutputDir = 'build/jfx/text2emoji'
-    jfxMainAppJarName = 'text2emoji.jar'
+    jfxAppOutputDir = "build/jfx/text2emoji-$version"
+    jfxMainAppJarName = "text2emoji-${version}.jar"
     vendor = 'Aleksander Mielczarek'
-    appName = 'text2emoji'
+    appName = 'Text2Emoji'
+    bundler = 'exe'
+    needShortcut = true
+    needMenu = true
+    bundleArguments = [
+            installdirChooser: 'true'
+    ]
+    nativeReleaseVersion = version
+    skipNativeVersionNumberSanitizing = true
 }
 
 dependencies {
@@ -18,4 +26,12 @@ dependencies {
     compile "com.google.inject:guice:$guice_version"
 
     compile project(':text2emoji-core')
+}
+
+processResources {
+    filesMatching("**/*.properties") {
+        expand(
+                'version': version
+        )
+    }
 }
