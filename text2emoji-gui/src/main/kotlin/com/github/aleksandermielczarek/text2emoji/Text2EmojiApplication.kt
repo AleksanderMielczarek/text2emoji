@@ -33,7 +33,7 @@ class Text2EmojiApplication : Application() {
         injectMembers(this)
         val root = createRoot(resources)
         val scene = Scene(root)
-        setupStage(primaryStage, resources, scene)
+        setupStage(primaryStage, scene)
         primaryStage.show()
     }
 
@@ -43,7 +43,7 @@ class Text2EmojiApplication : Application() {
         return root
     }
 
-    private fun setupStage(primaryStage: Stage, bundle: ResourceBundle, scene: Scene) {
+    private fun setupStage(primaryStage: Stage, scene: Scene) {
         primaryStage.title = messageFactory.appName
         primaryStage.icons.add(resourceFactory.appIcon)
         primaryStage.scene = scene
