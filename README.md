@@ -4,7 +4,7 @@ Write messages using emoji in your favourite communicator.
 
 ![Application](images/app.png)
 
-![Emojis](images/emojis.png)
+![Emojis](images/emoji.png)
 
 ## Download
 
