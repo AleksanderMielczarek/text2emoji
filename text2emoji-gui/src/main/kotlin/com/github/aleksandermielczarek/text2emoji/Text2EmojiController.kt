@@ -1,14 +1,22 @@
 package com.github.aleksandermielczarek.text2emoji
 
-import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.*
+import javafx.scene.control.Alert.AlertType
+import javafx.scene.image.Image
+import javafx.scene.web.WebView
+import javafx.stage.Stage
+import java.util.*
 import javax.inject.Inject
+
 
 /**
  * Created by Aleksander Mielczarek on 14.07.2017.
  */
 class Text2EmojiController {
+
+    @FXML
+    lateinit var resources: ResourceBundle
 
     @FXML
     lateinit var text: TextField
@@ -46,7 +54,13 @@ class Text2EmojiController {
     }
 
     @FXML
-    fun copyToClipboard(event: ActionEvent) {
+    fun openAboutDialog() {
+        val alert = createAboutDialog()
+        alert.show()
+    }
+
+    @FXML
+    fun copyToClipboard() {
         viewModel.copyToClipboard()
     }
 
@@ -67,6 +81,23 @@ class Text2EmojiController {
         width.disableProperty().bind(viewModel.widthEnabled.not())
         separator.disableProperty().bind(viewModel.separatorEnabled.not())
         emojis.textProperty().bind(viewModel.emojis)
+    }
+
+    private fun createAboutDialog(): Alert {
+        val alert = Alert(AlertType.INFORMATION)
+
+        val alertStage = alert.dialogPane.scene.window as Stage
+        alertStage.icons.add(Image("image/icon.png"))
+
+        alert.title = resources.getString("menu.label.about")
+        alert.headerText = resources.getString("app.name")
+
+        val webView = WebView()
+        webView.engine.loadContent(resources.getString("dialog.about.license"))
+        webView.setPrefSize(alert.width, 100.0)
+        alert.dialogPane.content = webView
+
+        return alert
     }
 
 }
