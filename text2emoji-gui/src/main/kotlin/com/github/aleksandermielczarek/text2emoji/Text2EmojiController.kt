@@ -1,12 +1,12 @@
 package com.github.aleksandermielczarek.text2emoji
 
+import com.github.aleksandermielczarek.text2emoji.resource.MessageFactory
+import com.github.aleksandermielczarek.text2emoji.resource.ResourceFactory
 import javafx.fxml.FXML
 import javafx.scene.control.*
 import javafx.scene.control.Alert.AlertType
-import javafx.scene.image.Image
 import javafx.scene.web.WebView
 import javafx.stage.Stage
-import java.util.*
 import javax.inject.Inject
 
 
@@ -14,9 +14,6 @@ import javax.inject.Inject
  * Created by Aleksander Mielczarek on 14.07.2017.
  */
 class Text2EmojiController {
-
-    @FXML
-    lateinit var resources: ResourceBundle
 
     @FXML
     lateinit var text: TextField
@@ -44,6 +41,12 @@ class Text2EmojiController {
 
     @Inject
     private lateinit var viewModel: Text2EmojiViewModel
+
+    @Inject
+    private lateinit var messageFactory: MessageFactory
+
+    @Inject
+    private lateinit var resourceFactory: ResourceFactory
 
     @FXML
     fun initialize() {
@@ -87,13 +90,13 @@ class Text2EmojiController {
         val alert = Alert(AlertType.INFORMATION)
 
         val alertStage = alert.dialogPane.scene.window as Stage
-        alertStage.icons.add(Image("image/icon.png"))
+        alertStage.icons.add(resourceFactory.appIcon)
 
-        alert.title = resources.getString("menu.label.about")
-        alert.headerText = resources.getString("app.name")
+        alert.title = messageFactory.menuLabelAbout
+        alert.headerText = messageFactory.appName
 
         val webView = WebView()
-        webView.engine.loadContent(resources.getString("dialog.about.license"))
+        webView.engine.loadContent(messageFactory.dialogAboutLicense)
         webView.setPrefSize(alert.width, 100.0)
         alert.dialogPane.content = webView
 
