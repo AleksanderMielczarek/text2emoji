@@ -1,5 +1,6 @@
 package com.github.aleksandermielczarek.text2emoji
 
+import com.github.aleksandermielczarek.text2emoji.ui.main.Text2EmojiViewModel
 import com.nhaarman.mockito_kotlin.whenever
 import org.junit.Assert.assertEquals
 import org.junit.Before

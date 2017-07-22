@@ -1,5 +1,6 @@
-package com.github.aleksandermielczarek.text2emoji
+package com.github.aleksandermielczarek.text2emoji.ui.main
 
+import com.github.aleksandermielczarek.text2emoji.Text2Emoji
 import com.github.thomasnield.rxkotlinfx.toBinding
 import com.github.thomasnield.rxkotlinfx.toObservable
 import io.reactivex.rxkotlin.Observables

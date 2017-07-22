@@ -1,5 +1,7 @@
-package com.github.aleksandermielczarek.text2emoji
+package com.github.aleksandermielczarek.text2emoji.ui.main
 
+import com.github.aleksandermielczarek.text2emoji.Symbol
+import com.github.aleksandermielczarek.text2emoji.Text2EmojiApplication
 import com.github.aleksandermielczarek.text2emoji.resource.MessageFactory
 import com.github.aleksandermielczarek.text2emoji.resource.ResourceFactory
 import javafx.fxml.FXML
