@@ -8,6 +8,8 @@ Write messages using emoji in your favourite communicator.
 
 ## Download
 
+[Download latest version](https://github.com/AleksanderMielczarek/text2emoji/releases/download/1.0.0/Text2Emoji-1.0.0.exe)
+
 ## Changelog
 
 ### 1.0.0 (2017-07-22)
