@@ -2,9 +2,17 @@
 
 Write messages using emoji in your favourite communicator.
 
+![Application](images/app.png)
+
+![Emojis](images/emojis.png)
+
 ## Download
 
 ## Changelog
+
+### 1.0.0 (2017-07-22)
+
+- stable release
 
 ## License
 
